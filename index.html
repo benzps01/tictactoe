@@ -3,9 +3,25 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Tic Tac Toe</title>
 </head>
 <body>
+    <table class="scoreboard">
+        <tr>
+            <th>X</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>O</th>
+        </tr>
+        <tr>
+            <th id="xScore">0</th>
+            <th></th>
+            <th>:</th>
+            <th></th>
+            <th id="oScore">0</th>
+        </tr>
+    </table>
     <div class="wrapper">
         <div class="cell" id="cell1" onclick="selectPosition(0,0)"></div>
         <div class="cell" id="cell2" onclick="selectPosition(0,1)"></div>
@@ -20,7 +36,10 @@
     <div class="bottom">
         <div class="result" id="result">Result</div>
     </div>
-    <button class="reset" id="reset" onclick="resetBoard()">RESET</button>
+    <div class="buttonsection">
+        <button class="reset" id="reset" onclick="resetBoard()">RESET</button>
+        <button class="scorereset" id="scorereset" onclick="resetScore()">SCORE RESET</button>
+    </div>
     <script src="app.js"></script>
 </body>
 </html>

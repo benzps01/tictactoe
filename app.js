@@ -9,6 +9,11 @@ const c8 = document.getElementById('cell8')
 const c9 = document.getElementById('cell9')
 
 const res = document.getElementById('result')
+const xScore = document.getElementById('xScore')
+const oScore = document.getElementById('oScore')
+
+var xS = 0
+var oS = 0
 
 const p1Choice = 'X'
 const p2Choice = 'O'
@@ -46,8 +51,8 @@ function selectPosition(row,column){
         res.textContent = 'Space is already filled'
     }
     else{
+        res.textContent = 'Result'
         startGame(row,column)
-        console.log('Select position has run')
     }
 }
 
@@ -87,6 +92,8 @@ function startGame(row,column){
             printBoard(board)
             if (winnerCheck(board,p1Choice)){
                 res.textContent = `Player ${p1Choice} won`
+                xS += 1
+                xScore.textContent = xS
                 gameState = 'inactive'
                 return
             }
@@ -105,6 +112,8 @@ function startGame(row,column){
             printBoard(board)
             if (winnerCheck(board,p2Choice)){
                 res.textContent = `Player ${p2Choice} won`
+                oS += 1
+                oScore.textContent = oS
                 gameState = 'inactive'
                 return
             }
@@ -128,6 +137,15 @@ function resetBoard(){
         }
     }
     turn = 'p1'
+    gameState = 'active'
     res.textContent = 'Result'
     printBoard(board)
+}
+
+function resetScore(){
+    resetBoard()
+    xS = 0
+    oS = 0
+    xScore.textContent = xS
+    oScore.textContent = oS
 }
